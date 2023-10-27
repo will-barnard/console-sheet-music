@@ -2,7 +2,7 @@ package src.Java;
 
 import java.util.Scanner;
 
-public class SheetMusicMain {
+public class ConsoleMain {
 
     public static void main(String[] args) {
 
@@ -21,9 +21,8 @@ public class SheetMusicMain {
             System.out.println("Type 'Commands' for Diatonic Module commands");
             System.out.println("Please input a key signature");
             String keyInput = inputScanner.nextLine();
-            DiatonicMethod chordInput = new DiatonicMethod();
-
-
+            //DiatonicMethod chordInput = new DiatonicMethod();
+            //DiatonicMethod.printScaleNotesDiatonic()
 
         }
 

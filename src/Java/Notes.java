@@ -21,6 +21,7 @@ public class Notes {
             i. range, eg A4, C5...
         d. meter logic
         e. print a c scale
+        f. chromatic set translation
 
     ///////////////////////
 

@@ -1,27 +1,44 @@
 package src.Java;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+// Class for parsing musical/diatonic information from an alpha input
+public class DiatonicScale {
 
-public class DiatonicMethod {
+    private String key;
+    private int[] majorScale;
+    public DiatonicScale() {
+    }
 
-    // Class for parsing musical/diatonic information from an alpha input
+    public DiatonicScale(String key) {
+        // INSTANCE THIS CLASS AS AN OBJECT WITH A SPECIFIC KEY
+        this.key = key;
+        // this. majorScale = key ???
 
-    public static void main(String[] args) {
+    }
+
+    public String getKey() {
+        // MOVE DETERMINE KEY HERE
+        return key;
+    }
+
+
+
+
+    public void main(String[] args) {
 
         // init scanner and prompt for key
         Scanner inputScanner = new Scanner(System.in);
         System.out.println("Input a key signature:");
         String keyInput = inputScanner.nextLine();
-        keyInput = keyInput.toUpperCase();
+        keyInput = keyInput.substring(0, 1).toUpperCase() + keyInput.substring(1);
 
 
         { Boolean validCheck = true;
         while (validCheck) {
-            if (checkValid(keyInput)) {
+            if (isValidKey(keyInput)) {
                 validCheck = false;
             } else {
                 System.out.println("Not a valid key, try again");
@@ -33,13 +50,13 @@ public class DiatonicMethod {
         int keyIndex = keyToIndex(keyInput);
         System.out.println("diatonic index for " + keyInput + " is " + keyToIndex(keyInput));
         int[] diatonicArray = diatonicScale(keyIndex);
-        System.out.println(printScaleNotes(diatonicArray));
+        System.out.println(printScaleNotesDiatonic(diatonicArray));
 
         }
 
     }
 
-    public static boolean checkValid(String str) {
+    public static boolean isValidKey(String str) {
 
         // calculate if given input is a valid key
         Map<String, Integer> keyMap = new HashMap<>();
@@ -123,7 +140,7 @@ public class DiatonicMethod {
     }
 
 
-    public static int[] diatonicScale(int k) {
+    public int[] diatonicScale(int k) {
 
         // calculate diatonic scale as an int[] for current key
         int[] scale = new int[] {0, 2, 4, 5, 7, 9, 11};
@@ -138,7 +155,7 @@ public class DiatonicMethod {
 
     }
 
-    public static String printScaleNotes(int[] scale) {
+    public String printScaleNotesDiatonic(int[] scale) {
 
         // print a string containing the seven note diatonic scale in letter form
 
@@ -169,7 +186,7 @@ public class DiatonicMethod {
 
     }
 
-    public static boolean flatOrSharp(int key) {
+    public boolean flatOrSharp(int key) {
 
         // checks for sharp/flat convention given scalar int array
         // SHARP is TRUE, FLAT is FALSE
@@ -179,6 +196,25 @@ public class DiatonicMethod {
         else {
             return false;
         }
+
+    }
+
+    public String printScaleNotesChromatic(int[] scale) {
+
+        // print a string containing the notes from a int array input in letter form
+
+        String scaleString = "";
+        String note = "";
+        for (int i = 0; i < scale.length; i++) {
+            note = indexToKey(scale[i]);
+            // concat and add comma
+            scaleString += note;
+            if (i < scale.length - 1) {
+                scaleString = scaleString + ", ";
+            }
+        }
+
+        return scaleString;
 
     }
 
