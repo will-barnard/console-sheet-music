@@ -8,15 +8,13 @@ import java.util.Scanner;
 public class DiatonicScale {
 
     private String key;
-    private int[] majorScale;
+    private String[] majorScale;
     public DiatonicScale() {
     }
 
     public DiatonicScale(String key) {
-        // INSTANCE THIS CLASS AS AN OBJECT WITH A SPECIFIC KEY
         this.key = key;
-        // this. majorScale = key ???
-
+        this.majorScale = printScaleNotesArray(diatonicScale(keyToIndex(key)));
     }
 
     public String getKey() {
@@ -35,7 +33,6 @@ public class DiatonicScale {
         String keyInput = inputScanner.nextLine();
         keyInput = keyInput.substring(0, 1).toUpperCase() + keyInput.substring(1);
 
-
         { Boolean validCheck = true;
         while (validCheck) {
             if (isValidKey(keyInput)) {
@@ -46,14 +43,12 @@ public class DiatonicScale {
             }
         }
 
-
         int keyIndex = keyToIndex(keyInput);
         System.out.println("diatonic index for " + keyInput + " is " + keyToIndex(keyInput));
         int[] diatonicArray = diatonicScale(keyIndex);
         System.out.println(printScaleNotesDiatonic(diatonicArray));
 
         }
-
     }
 
     public static boolean isValidKey(String str) {
@@ -180,6 +175,34 @@ public class DiatonicScale {
             if (i < scale.length - 1) {
                 scaleString = scaleString + ", ";
             }
+        }
+
+        return scaleString;
+
+    }
+
+    public String[] printScaleNotesArray(int[] scale) {
+
+        // print a string containing the seven note diatonic scale in letter form
+
+        String scaleString[] = new String[7];
+        String note = "";
+        for (int i = 0; i < scale.length; i++) {
+
+            note = indexToKey(scale[i]);
+
+            // convert to key sig appropriate note string
+            if (note.length() > 2) {
+                if (flatOrSharp(scale[0])) {
+                    note = note.substring(0, 2);
+                }
+                else {
+                    note = note.substring( 3);
+                }
+            }
+
+            scaleString[i] = note;
+
         }
 
         return scaleString;

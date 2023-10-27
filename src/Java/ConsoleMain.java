@@ -21,8 +21,11 @@ public class ConsoleMain {
             System.out.println("Type 'Commands' for Diatonic Module commands");
             System.out.println("Please input a key signature");
             String keyInput = inputScanner.nextLine();
-            //DiatonicMethod chordInput = new DiatonicMethod();
-            //DiatonicMethod.printScaleNotesDiatonic()
+
+            DiatonicScale test = new DiatonicScale(keyInput);
+            StaffBuilder print = new StaffBuilder(test.printScaleNotesArray(test.diatonicScale(NoteFunction.strToInt(keyInput))));
+            print.print();
+
 
         }
 

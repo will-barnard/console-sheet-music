@@ -13,6 +13,15 @@ public class Notes {
 
     TO-DO:
 
+    Finish QuarterNote {
+    - include flat or sharp
+    - finish generating lines
+    - flesh out int to note by common convention to plan ahead for chromaticism
+    - clarify objects - too many methods to call
+    - staff builder constructor is wrong
+    }
+
+
     1. Sprint one
         a. staff generator
             i. chuck out quarter note generator

@@ -1,6 +1,6 @@
 package src.Java;
 
-public class StaffGenerator {
+public class TrebleClef {
 
     public static void main(String[] args) {
 
@@ -25,7 +25,8 @@ public class StaffGenerator {
                 "   \\__|_/    ",
                 "------|------",
                 "      |      ",
-                "    `-'      "
+                "    `-'      ",
+                "             "
         };
 
         return trebleClef;
