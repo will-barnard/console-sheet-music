@@ -5,7 +5,6 @@ public class StaffBuilder {
     private String[] staff;
 
 
-
     public StaffBuilder() {
     }
 
@@ -20,7 +19,7 @@ public class StaffBuilder {
         for (int i = 0; i < scaleArray.length; i++) {
             QuarterNote note = new QuarterNote(scaleArray[i]);
             for (int j = 0; j < staff.length; j++) {
-                staff[i] += note.getNote()[j];
+                staff[j] += note.getNote()[j];
             }
         }
     }

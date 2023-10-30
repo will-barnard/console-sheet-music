@@ -6,7 +6,7 @@ public class Notes {
     /*
 
     #######################
-    ######## SCOPE ########
+    ######## hello ########
     #######################
 
     ///////////////////////
@@ -15,12 +15,16 @@ public class Notes {
 
     Finish QuarterNote {
     - include flat or sharp
-    - finish generating lines
-    - flesh out int to note by common convention to plan ahead for chromaticism
+    - add bar lines and a finish line
     - clarify objects - too many methods to call
-    - staff builder constructor is wrong
+    - allow note creation from int constructor - map for "default" flats and sharps
+    - implement actual flat sign
+    - implement natural sign
+    - implement staff lines below D4
+    - implement octave displacement
     }
 
+♮♮♮♮♮♮♮♮♮♮♮♮♮♮♮♮
 
     1. Sprint one
         a. staff generator

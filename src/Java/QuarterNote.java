@@ -36,15 +36,11 @@ public class QuarterNote {
 
 
 
-
-
-
-
     public static String[] blankSegment() {
         String[] staff = new String[14];
 
         for (int i = 0; i < staff.length; i++) {
-            if (i == 0 || i == 12 || i % 2 == 1 || i == 13) {
+            if (i == 0 || i == 12 || i % 2 == 1 || i == 13 || i == 14) {
                 staff[i] = "   ";
             }
             else if (i % 2 == 0) {
@@ -107,46 +103,4 @@ public class QuarterNote {
     }
 
 
-
-
-
 }
-
-
-/*
-
-
----------
-
----------
-
----------
-
----------
-     |
------|---
-     |
-   (*)
-
-
- */
-
-
-
-//    private String[] noteStaff = new String[]{
-//
-//            "         ",
-//            "         ",
-//            "---------",
-//            "         ",
-//            "---------",
-//            "         ",
-//            "---------",
-//            "         ",
-//            "---------",
-//            "         ",
-//            "---------",
-//            "         ",
-//            "         "
-//
-//    };
