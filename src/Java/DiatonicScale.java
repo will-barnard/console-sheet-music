@@ -129,6 +129,18 @@ public class DiatonicScale {
         keyMap.put(9, "A");
         keyMap.put(10, "A#/Bb");
         keyMap.put(11, "B");
+        keyMap.put(12, "C");
+        keyMap.put(13, "C#/Dd");
+        keyMap.put(14, "D");
+        keyMap.put(15, "D#/Eb");
+        keyMap.put(16, "E");
+        keyMap.put(17, "F");
+        keyMap.put(18, "F#/Gb");
+        keyMap.put(19, "G");
+        keyMap.put(20, "G#/Ab");
+        keyMap.put(21, "A");
+        keyMap.put(22, "A#/Bb");
+        keyMap.put(23, "B");
 
         return keyMap.get(note);
 
@@ -138,11 +150,17 @@ public class DiatonicScale {
     public int[] diatonicScale(int k) {
 
         // calculate diatonic scale as an int[] for current key
-        int[] scale = new int[] {0, 2, 4, 5, 7, 9, 11};
+        int[] scale = new int[] {0, 2, 4, 5, 7, 9, 11, 12};
         for (int i = 0; i < 7; i++) {
             scale[i] = scale[i] + k;
-            if (scale[i] > 11) {
-                scale[i] = scale[i] - 12;
+        }
+
+        for (int num : scale) {
+            if (k == 11) {
+                num -= 12;
+            }
+            if (num < k) {
+                num += 12;
             }
         }
 
@@ -185,7 +203,7 @@ public class DiatonicScale {
 
         // print a string containing the seven note diatonic scale in letter form
 
-        String scaleString[] = new String[7];
+        String scaleString[] = new String[8];
         String note = "";
         for (int i = 0; i < scale.length; i++) {
 
@@ -241,7 +259,25 @@ public class DiatonicScale {
 
     }
 
+    public int[] printScaleStaffPosition(int[] scale) {
 
+        // print a string containing the seven note diatonic scale in letter form
+        int scaleInts[] = new int[8];
+        for (int i = 0; i < scale.length; i++) {
+            //scaleInts[i] = NoteFunction.noteIntToStaffInt(scale[i]);
+            if (scale[i] < scale[0]) {
+                scale[i] += 8;
+            }
+            if (scale[0] == 11) {
+                scale[0] = -1;
+            }
+        }
+
+
+
+        return scaleInts;
+
+    }
 
 
 }

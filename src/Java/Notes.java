@@ -5,6 +5,12 @@ public class Notes {
 
     /*
 
+
+
+
+
+
+
     #######################
     ######## hello ########
     #######################
@@ -22,6 +28,12 @@ public class Notes {
     - implement natural sign
     - implement staff lines below D4
     - implement octave displacement
+    - CLEAN UP INTEGRATION BETWEEN NOTEINT AND NOTESTR
+    - change main quarter note constructor to include staff position
+        - you have to rework staff position
+
+        QUARTERNOTE line 56 is broken!!!
+
     }
 
 ♮♮♮♮♮♮♮♮♮♮♮♮♮♮♮♮
