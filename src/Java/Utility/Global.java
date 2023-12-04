@@ -1,9 +1,9 @@
-package src.Java;
+package src.Java.Utility;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class NoteFunction {
+public class Global {
 
     public final static String FLAT = "b";
     public final static String SHARP = "#";
@@ -67,8 +67,10 @@ public class NoteFunction {
         return keyMap.get(note);
     }
 
-//    public static String parseKeyFromInput(String key) {
+//    public int globalIntToTrebleStaffPosition(int num) {
 //
+//
+//        return null;
 //    }
 
 }

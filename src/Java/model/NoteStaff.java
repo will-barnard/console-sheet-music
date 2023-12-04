@@ -1,6 +1,8 @@
-package src.Java;
+package src.Java.model;
 
-public class QuarterNote {
+import src.Java.Utility.Global;
+
+public class NoteStaff {
 
 //    public static void main(String[] args) {
 //        for (String line : toNote()) {
@@ -8,72 +10,45 @@ public class QuarterNote {
 //        }
 //    }
 
-    private String noteStr;
-    private int noteInt;
-    private boolean flat = false;
-    private boolean sharp = false;
+    private String[] noteStaff;
 
 
-    public QuarterNote(String note) {
-        this.noteStr = note;
-        if (note.length() > 1) {
-            if (note.contains(NoteFunction.SHARP)) {
-                this.sharp = true;
-            }
-            if (note.contains(NoteFunction.FLAT)) {
-                this.flat = true;
-            }
-        }
-        this.noteInt = NoteFunction.strToInt(note);
+
+
+    public NoteStaff(Note note) {
+        this.noteStaff = createtNoteStaff(note);
     }
-    public QuarterNote(int note, boolean flatOrSharp) {
-
-        if (flatOrSharp) {
-            this.sharp = true;
-        }
-        if (!flatOrSharp) {
-            this.flat = true;
-        }
-
-        this.noteInt = note;
-    }
-    public QuarterNote(int note) {
-        //this.noteStr = note;
-        this.noteInt = note;
-    }
-    public QuarterNote() {
-    }
-
-
-
-
 
 
     // main method for building output
-    public String[] getNote() {
+    public String[] createtNoteStaff(Note note) {
+
+        String noteHead = "(*)";
 
         //init resulting staff
         String[] staff = new String[14];
 
-        //generate first third
+        //generate first third of noteStaff
         for (int i = 0; i < staff.length; i++) {
             staff[i] = blankSegment()[i];
         }
+
+
         // edge cases below staff
-        if (NoteFunction.strToInt(noteStr) == 0) {
+        if (Global.strToInt(noteStr) == 0) {
             staff[12] = " --";
         }
 
-        if (flat || sharp) {
-            if (NoteFunction.strToStaffInt(noteStr) > 1 ) {
+        if (note.getFlat() || note.getSharp()) {
+            if (Global.strToStaffInt(noteStr) > 1 ) {
 
-                staff[NoteFunction.strToStaffInt(noteStr)] = flat
-                        ? staff[NoteFunction.strToStaffInt(noteStr) + 7].substring(0, 1) + NoteFunction.FLAT
-                        : staff[NoteFunction.strToStaffInt(noteStr) + 7].substring(0, 1) + NoteFunction.SHARP;
+                staff[Global.strToStaffInt(noteStr)] = flat
+                        ? staff[Global.strToStaffInt(noteStr) + 7].substring(0, 1) + Global.FLAT
+                        : staff[Global.strToStaffInt(noteStr) + 7].substring(0, 1) + Global.SHARP;
             }
 
         }
-        else if (NoteFunction.strToInt(noteStr) == -1) {
+        else if (Global.strToInt(noteStr) == -1) {
             // do nothing for now, graphically dependant
         }
 
@@ -87,7 +62,7 @@ public class QuarterNote {
             staff[i] += blankSegment()[i];
         }
         // edge cases below staff
-        if (NoteFunction.strToInt(noteStr) == 0) {
+        if (Global.strToInt(noteStr) == 0) {
             staff[12] = staff[12].substring(0, 6) + "-- ";
         }
 
@@ -105,20 +80,20 @@ public class QuarterNote {
             staff[i] = blankSegment()[i];
         }
         // edge cases below staff
-        if (NoteFunction.strToInt(noteStr) == 0) {
+        if (Global.strToInt(noteStr) == 0) {
             staff[12] = " --";
         }
 
         if (flat || sharp) {
-            if (NoteFunction.strToStaffInt(noteStr) > 1 ) {
+            if (Global.strToStaffInt(noteStr) > 1 ) {
 
-                staff[NoteFunction.strToStaffInt(noteStr)] = flat
-                        ? staff[NoteFunction.strToStaffInt(noteStr) + 7].substring(0, 1) + NoteFunction.FLAT
-                        : staff[NoteFunction.strToStaffInt(noteStr) + 7].substring(0, 1) + NoteFunction.SHARP;
+                staff[Global.strToStaffInt(noteStr)] = flat
+                        ? staff[Global.strToStaffInt(noteStr) + 7].substring(0, 1) + Global.FLAT
+                        : staff[Global.strToStaffInt(noteStr) + 7].substring(0, 1) + Global.SHARP;
             }
 
         }
-        else if (NoteFunction.strToInt(noteStr) == -1) {
+        else if (Global.strToInt(noteStr) == -1) {
             // do nothing for now, graphically dependant
         }
 
@@ -132,7 +107,7 @@ public class QuarterNote {
             staff[i] += blankSegment()[i];
         }
         // edge cases below staff
-        if (NoteFunction.strToInt(noteStr) == 0) {
+        if (Global.strToInt(noteStr) == 0) {
             staff[12] = staff[12].substring(0, 6) + "-- ";
         }
 
@@ -143,7 +118,7 @@ public class QuarterNote {
 
     public String[] strToNote() {
         String[] staff = blankSegment();
-        staff[staff.length - NoteFunction.strToStaffInt(noteStr) - 2] = "(*)";
+        staff[staff.length - Global.strToStaffInt(noteStr) - 2] = "(*)";
 //        if (NoteFunction.strToInt(noteStr) == -1) {
 //            staff[13] = "---";
 //        }
@@ -162,7 +137,7 @@ public class QuarterNote {
 //    }
 
 
-    public static String[] blankSegment() {
+    private static String[] blankSegment() {
         String[] staff = new String[14];
 
         for (int i = 0; i < staff.length; i++) {

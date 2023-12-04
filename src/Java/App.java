@@ -1,8 +1,10 @@
 package src.Java;
 
+import src.Java.Utility.Global;
+
 import java.util.Scanner;
 
-public class ConsoleMain {
+public class App {
 
     public static void main(String[] args) {
 
@@ -23,7 +25,7 @@ public class ConsoleMain {
             String keyInput = inputScanner.nextLine();
 
             DiatonicScale test = new DiatonicScale(keyInput);
-            StaffBuilder print = new StaffBuilder(test.printScaleNotesArray(test.diatonicScale(NoteFunction.strToInt(keyInput))));
+            StaffBuilder print = new StaffBuilder(test.printScaleNotesArray(test.diatonicScale(Global.strToInt(keyInput))));
             print.print();
 
 

@@ -1,6 +1,6 @@
 package src.Java;
 
-public class Notes {
+public class ScratchNotes {
 
 
     /*
