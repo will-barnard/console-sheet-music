@@ -1,5 +1,6 @@
 package src.Java;
 
+import src.Java.model.Note;
 import src.Java.model.NoteStaff;
 
 public class StaffBuilder {
@@ -9,7 +10,7 @@ public class StaffBuilder {
     }
 
     // TODO separate constructors for treble and bass clef
-    public StaffBuilder(String[] scaleArray) {
+    public StaffBuilder(List<Note> noteList) {
         this.staff = new String[14];
 
 
@@ -48,7 +49,6 @@ public class StaffBuilder {
                 "------|------",
                 "      |      ",
                 "    `-'      ",
-                "             ",
                 "             "
         };
         return trebleClef;
